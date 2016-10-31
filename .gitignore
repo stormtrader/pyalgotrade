@@ -1,0 +1,9 @@
+*pyc
+MANIFEST
+doc/_build
+*.csv
+dist
+build
+PyAlgoTrade.egg-info
+.idea
+testcases/twitter_credentials.py
