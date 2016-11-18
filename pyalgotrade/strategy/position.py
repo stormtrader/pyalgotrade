@@ -134,6 +134,7 @@ class ClosedState(PositionState):
 
 
 class Position(object):
+    #代表了头寸？
     """Base class for positions.
 
     Positions are higher level abstractions for placing orders.

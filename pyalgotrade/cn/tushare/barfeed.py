@@ -97,9 +97,10 @@ class TickDataSeries(object):
     def empty(self):
         return len(self.__priceDS) == 0
 
-
+#得到交易日列表，这里最好能直接给到就好了
 def get_trading_days(start_day, days):
     try:
+        #获取上证指数的k线数据
         df = ts.get_hist_data('sh')
     except Exception, e:
         logger.error("Tushare get hist data exception", exc_info=e)
@@ -296,8 +297,10 @@ class TuShareLiveFeed(barfeed.BaseBarFeed):
         self.__frequency = frequency
         self.__queue = Queue.Queue()
 
+        #需要补充好历史的k线，分钟策略是补充最近5天的，生成K线并且，放入queue，放入queue此时还不会触发onbars
         self.__fill_today_history_bars(replayDays) # should run before polling thread start
 
+        #正式开始接收请求
         self.__thread = TushareBarFeedThread(self.__queue, identifiers, frequency)
         for instrument in identifiers:
             self.registerInstrument(instrument)

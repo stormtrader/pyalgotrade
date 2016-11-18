@@ -51,8 +51,8 @@ class BaseStrategy(object):
         self.__barFeed = barFeed #ok
         self.__broker = broker #ok
         self.__activePositions = set() #用于管理活动的订单，如已经提交的买单
-        self.__orderToPosition = {} #
-        self.__barsProcessedEvent = observer.Event() #
+        self.__orderToPosition = {} ###
+        self.__barsProcessedEvent = observer.Event() ###
         self.__analyzers = []
         self.__namedAnalyzers = {}
         self.__resampledBarFeeds = [] #
